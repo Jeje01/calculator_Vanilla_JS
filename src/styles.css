@@ -1,12 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Lobster&display=swap');
 body {
-    font-family: sans-serif;
+    font-family: 'Lobster', cursive;
+    background-color: rgb(199, 225, 235);
   }
+.title{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  color: rgb(50, 50, 137);
+  text-shadow: 5px 3px 6px rgb(169, 167, 167);
 
-button{
-  width: 60px;
-  height:50px;
 }
 
+.cal{
+  display: flex;
+  justify-content: center; 
+  margin-top: 30px;
+}
+
+input{
+  border-radius: 10px;
+  border: 0px;
+}
+
+button{
+  height:50px;
+  border-radius: 10px;
+  border: 0px;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(60, 60, 125);
+  font-family: 'Abel', sans-serif;
+  transition: 0.1s ease-in-out;
+}
+
+#wrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 80%;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+}
+
+.num{
+  grid-column: 1/4;
+  grid-row: 1;
+}
+
+.zero{
+  grid-column: 1/3;
+  grid-row:5;
+}
+
+button:active{
+  color: white;
+  background-color: rgb(160, 160, 160);
+}
+
+
+
+@media screen and (min-width: 600px){
+  #wrapper{
+    width: 500px;
+  }
+}
 
 
 
