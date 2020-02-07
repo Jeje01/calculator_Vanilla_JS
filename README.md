@@ -1,2 +1,2 @@
 # calculator_Vanilla_JS
- Creating a calculator with vanilla Javascript
+ Created a calculator using vanilla Javascript
