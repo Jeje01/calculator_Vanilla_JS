@@ -4,11 +4,12 @@ const num = document.querySelectorAll(".num"),
     cBtn = document.querySelector(".cBtn"),
     eqBtn = document.querySelector(".equalBtn");
 
-let i, equation="", numOne, numTwo, opOne, opTwo;
-let opTmp, numTmp, afterOp=1;
+let i, numOne, numTwo, opOne;
+let opTmp, numTmp, afterOp=1, initial=0;
+let equation="";
 
 function handleNum(i){
-   if(afterOp === 1 || parseInt(input.value)===0){
+   if(initial===1||afterOp === 1 || parseInt(input.value)===0){
        input.value=i;
        afterOp=0;
    } else{
@@ -35,13 +36,15 @@ function handleOp(i){
         case "*": equation += `*`;
         opTmp="*";
         break;
-        case "*": equation += `/`;
+        case "/": equation += `/`;
         opTmp="/";
         break;
     }
-    numTmp=parseInt(input.value);
-    if(typeof numOne === "undefined"||numOne === 0)
+    numTmp=parseFloat(input.value);
+    if(typeof numOne === "undefined"||initial === 1){
         numOne=numTmp;
+        initial=0;
+    }
     else{ 
         numTwo=numTmp;
     }
@@ -65,11 +68,11 @@ op.forEach(i => {
 
 cBtn.addEventListener("click", function(event){
     input.value=0;
-    equation="";
+    //equation="";
     numOne=0;
     numTwo=0;
     opOne="";
-    opTwo="";
+    initial=1;
 })
 
 function getAnswer(op){
@@ -82,13 +85,11 @@ function getAnswer(op){
             break;
             case "/": numOne=parseInt(numOne)/parseInt(numTwo);
             break;
-            case "=": getAnswer(opOne);
-            break; 
     }
     console.log("numOne:"+numOne);
-    return parseInt(numOne);
+    return parseFloat(numOne);
 }
 
 eqBtn.addEventListener("click", function(event){
-    input.value=getAnswer("=");
+    handleOp("=");
 })
