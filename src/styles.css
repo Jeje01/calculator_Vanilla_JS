@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Lobster&display=swap');
 body {
     font-family: 'Lobster', cursive;
-    background-color: rgb(199, 225, 235);
+    background-color: rgb(206, 216, 238);
   }
 .title{
   display: flex;
@@ -31,7 +31,8 @@ button{
   font-weight: 500;
   color: rgb(60, 60, 125);
   font-family: 'Abel', sans-serif;
-  transition: 0.1s ease-in-out;
+  box-shadow: 3px 3px 8px rgb(164, 163, 163);
+  transition: 0.2s ease-in-out;
 }
 
 #wrapper{
@@ -43,9 +44,13 @@ button{
   grid-column-gap: 10px;
 }
 
-.num{
+.numInput{
   grid-column: 1/4;
   grid-row: 1;
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  font-size: 17px;
 }
 
 .zero{
@@ -60,14 +65,21 @@ button:active{
 
 
 
+
 @media screen and (min-width: 600px){
   #wrapper{
     width: 500px;
   }
 }
 
+.op{
+  background-color: rgba(155, 155, 208, 0.939);
+}
 
-
+.clear{
+  background-color: rgb(147, 117, 174); 
+  color: white;
+}
 
 
 
