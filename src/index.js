@@ -5,13 +5,14 @@ const num = document.querySelectorAll(".num"),
     eqBtn = document.querySelector(".equalBtn");
 
 let i, numOne, numTwo, opOne;
-let opTmp, numTmp, afterOp=1, initial=0;
+let opTmp, numTmp, afterOp=1, initial=1;
 let equation="";
 
 function handleNum(i){
-   if(initial===1||afterOp === 1 || parseInt(input.value)===0){
+   if(initial===1||afterOp === 1){
        input.value=i;
        afterOp=0;
+       initial=0;
    } else{
        input.value+=i;
    }
@@ -41,7 +42,7 @@ function handleOp(i){
         break;
     }
     numTmp=parseFloat(input.value);
-    if(typeof numOne === "undefined"||initial === 1){
+    if(typeof numOne === "undefined"||numOne==0||initial === 1){
         numOne=numTmp;
         initial=0;
     }
@@ -68,7 +69,8 @@ op.forEach(i => {
 
 cBtn.addEventListener("click", function(event){
     input.value=0;
-    //equation="";
+    equation="";
+    console.log(equation);
     numOne=0;
     numTwo=0;
     opOne="";
